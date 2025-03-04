@@ -1,0 +1,40 @@
+name: build
+
+on:
+  pull_request:
+
+  push:
+    branches:
+      - main
+    tags:
+      - v*
+
+  workflow_dispatch:
+
+  schedule:
+    - cron: '0 0 * * 1'
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        go: [ '1.21', '1.x' ]
+        os: [ ubuntu-latest, macos-latest ]
+
+    runs-on: ${{ matrix.os }}
+
+    name: ${{ matrix.os }}/${{ matrix.go }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: ${{ matrix.go }}
+
+      - name: Build
+        run: make build
+
+      - name: Check
+        run: ./md-authors --help
