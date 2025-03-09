@@ -14,7 +14,7 @@ import (
 
 var (
 	emptyLinesRx = regexp.MustCompile(`\n(\s*\n+)+`)
-	spaceRx      = regexp.MustCompile(`\s`)
+	spaceRx      = regexp.MustCompile(`\s+`)
 )
 
 func regenerateBlock(content string, conf defs.Config) (string, error) {
@@ -95,6 +95,9 @@ func generateAuthors(content string, conf defs.Config) (string, error) {
 		}
 		if spaceRx.MatchString(author.Name) {
 			uniqKeys = append(uniqKeys, author.Name)
+			for _, word := range spaceRx.Split(author.Name, -1) {
+				extraKeys = append(extraKeys, word)
+			}
 		} else {
 			extraKeys = append(extraKeys, author.Name)
 		}
