@@ -6,6 +6,8 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/gofrs/flock"
+
 	"github.com/gavv/md-authors/src/logs"
 )
 
@@ -23,6 +25,20 @@ func diskInit() {
 	diskOnce.Do(func() {
 		diskDir, _ := os.UserCacheDir()
 		diskFile = diskDir + "/mdauthors.json"
+
+		// ensure file exists
+		file, err := os.OpenFile(diskFile, os.O_RDONLY|os.O_CREATE, 0666)
+		if err != nil {
+			logs.Fatalf("failed to open or create %q", diskFile)
+		}
+		file.Close()
+
+		// acquire shared lock
+		lock := flock.New(diskFile)
+		if err := lock.RLock(); err != nil {
+			logs.Fatalf("failed to acquire shared lock on %q", diskFile)
+		}
+		defer lock.Unlock()
 
 		b, _ := os.ReadFile(diskFile)
 		if err := json.Unmarshal(b, &diskCache); err != nil {
@@ -44,6 +60,13 @@ func DiskStore(keys []string, value string) {
 
 	logs.Debugf("cache store: %q %q", key, value)
 	diskCache[key] = value
+
+	// acquire exclusive lock
+	lock := flock.New(diskFile)
+	if err := lock.Lock(); err != nil {
+		logs.Fatalf("failed to acquire exclusive lock on %q", diskFile)
+	}
+	defer lock.Unlock()
 
 	b, _ := json.MarshalIndent(diskCache, "", " ")
 	os.WriteFile(diskFile, b, 0644)
