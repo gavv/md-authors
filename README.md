@@ -45,7 +45,7 @@ Features:
 
 First, install Go >= 1.21.
 
-On Ununtu:
+On Ubuntu:
 
 ```
 sudo apt install golang-go
