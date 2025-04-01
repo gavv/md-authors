@@ -6,8 +6,8 @@ github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/fatih/color v1.18.0 h1:S8gINlzdQ840/4pfAwic/ZE0djQEH3wM94VfqLTZcOM=
 github.com/fatih/color v1.18.0/go.mod h1:4FelSpRwEGDpQ12mAdzqdOukCy4u8WUtOY6lkT/6HfU=
-github.com/gofri/go-github-pagination v1.0.0 h1:nnCi+1xT5ybqY/plctISgiQPWZOtfSciVQlbx/hM/Yw=
-github.com/gofri/go-github-pagination v1.0.0/go.mod h1:Qij55Fb4fNPjam3SB+8cLnqp4pgR8RGMyIspYXcyHX0=
+github.com/gofri/go-github-pagination v1.0.1 h1:j5uJRx65i/Ta2M0QSgiPcyokY69JnCQglt4n9pspFhY=
+github.com/gofri/go-github-pagination v1.0.1/go.mod h1:Qij55Fb4fNPjam3SB+8cLnqp4pgR8RGMyIspYXcyHX0=
 github.com/gofri/go-github-ratelimit v1.1.1 h1:5TCOtFf45M2PjSYU17txqbiYBEzjOuK1+OhivbW69W0=
 github.com/gofri/go-github-ratelimit v1.1.1/go.mod h1:wGZlBbzHmIVjwDR3pZgKY7RBTV6gsQWxLVkpfwhcMJM=
 github.com/gofrs/flock v0.12.1 h1:MTLVXXHf8ekldpJk3AKicLij9MdwOWkZ+a/jHHZby9E=
