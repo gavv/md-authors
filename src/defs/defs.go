@@ -4,9 +4,8 @@ type Config struct {
 	Format string
 	Sort   string
 
-	Vcs     string
-	Forge   string
-	Project string
+	Project   string
+	NoProject bool
 
 	Append bool
 	Pipe   bool

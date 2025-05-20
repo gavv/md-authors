@@ -91,9 +91,8 @@ OPTIONS:
   -a, --append           append to list instead of replacing
   -P, --pipe             read from stdin (if --append) and write to stdout
   -x, --ignore string    comma-separated list of emails, names, and logins to ignore
-      --vcs string       version control system (default "git")
-      --forge string     forge service (default "github")
-  -p, --project string   forge project
+  -p, --project string   github project
+  -N, --no-project       don't query github project
   -r, --refresh          refresh cached data
   -d, --debug            enable debug logging
   -h, --help             print this message and exit
@@ -235,7 +234,7 @@ List of available fields:
 | `{login}`   | github login                                          |
 | `{profile}` | github profile url                                    |
 
-Some fields may be empty/missing if this information is not available on GitHub or if GitHub support is disabled via `--forge=none` option.
+Some fields may be empty/missing if this information is not available on GitHub or if GitHub support is disabled via `--no-project` option.
 
 Example of `|` syntax usage is to print email if it's available or profile link otherwise:
 
@@ -266,18 +265,13 @@ when both `email` and `profile` are empty, they are removed together with surrou
 
 Note that in `--append` mode, sort order affects only newly added entries, so using `--append` together with `--sort=name` is probably not what you want.
 
-### Git and GitHub
-
-`--vcs` option is intended to specify type of version control system to collect list of authors. However, currently only `git` is supported.
-
-`--forge` option defines which code forge to use to fetch additional information. Currently only two values are accepted: `github` (default) and `none`:
-
-- With `--forge=github`, the tool queries GitHub API, needs Internet connection, and is slower.
-- With `--forge=none`, the tool is completely offline and uses only information from local VCS.
+### GitHub project
 
 `--project` option may be used to explicitly specify github repository name in form `<owner>/<repo>`. If not specified, it is automatically detected from `git remote -v`.
 
-You're welcome to send pull requests with support for other backends, e.g. `--vcs=hg` or `--forge=gitlab`.
+`--no-project` option disable github support. When specified, only local git history is used.
+
+Backends other than git and github are not supported so far, but pull requests are welcome!
 
 ### Troubleshooting
 

@@ -6,20 +6,16 @@ import (
 
 // Collect list of authors from VCS.
 func CollectAuthors(conf defs.Config) ([]defs.Author, error) {
-	switch conf.Vcs {
-	case "git":
-		return gitCollect(conf)
-	}
-
-	return nil, nil
+	// for now, only git is supported
+	return gitCollect(conf)
 }
 
 // Populate extra author fields from forge.
 func PopulateAuthor(author defs.Author, conf defs.Config) (defs.Author, error) {
-	switch conf.Forge {
-	case "github":
-		return githubPopulate(author, conf)
+	if conf.NoProject {
+		return author, nil
 	}
 
-	return author, nil
+	// for now, only github is supported
+	return githubPopulate(author, conf)
 }

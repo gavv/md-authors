@@ -111,9 +111,8 @@ EXAMPLES:
 		"read from stdin (if --append) and write to stdout")
 	ignore := fset.StringP("ignore", "x", "",
 		"comma-separated list of emails, names, and logins to ignore")
-	fset.StringVar(&conf.Vcs, "vcs", "git", "version control system")
-	fset.StringVar(&conf.Forge, "forge", "github", "forge service")
-	fset.StringVarP(&conf.Project, "project", "p", "", "forge project")
+	fset.StringVarP(&conf.Project, "project", "p", "", "github project")
+	fset.BoolVarP(&conf.NoProject, "no-project", "N", false, "don't query github project")
 	fset.BoolVarP(&cache.Refresh, "refresh", "r", false, "refresh cached data")
 	fset.BoolVarP(&logs.EnableDebug, "debug", "d", false, "enable debug logging")
 	help := fset.BoolP("help", "h", false, "print this message and exit")
@@ -133,19 +132,6 @@ EXAMPLES:
 	case "date", "name":
 	default:
 		logs.Fatalf("--sort=%s not recognized", conf.Sort)
-	}
-
-	switch conf.Vcs {
-	case "git":
-	default:
-		logs.Fatalf("--vcs=%s not recognized", conf.Vcs)
-	}
-
-	switch conf.Forge {
-	case "none":
-	case "github":
-	default:
-		logs.Fatalf("--forge=%s not recognized", conf.Forge)
 	}
 
 	if !strings.Contains(conf.Format, "{") {
