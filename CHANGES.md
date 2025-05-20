@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.3][v0.3] - 20 May 2025
+
+* Remove `--vcs` and `--forge`, add `--no-project`
+
+[v0.3]: https://github.com/gavv/md-authors/releases/tag/v0.3
+
 ## [v0.2][v0.2] - 09 Mar 2025
 
 * Improve name matching
