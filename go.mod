@@ -1,13 +1,11 @@
 module github.com/gavv/md-authors
 
-go 1.21.0
-
-toolchain go1.24.1
+go 1.25.0
 
 require (
 	github.com/Jeffail/gabs/v2 v2.7.0
 	github.com/anyascii/go v0.3.3
-	github.com/fatih/color v1.18.0
+	github.com/fatih/color v1.19.0
 	github.com/gofri/go-github-pagination v1.0.1
 	github.com/gofri/go-github-ratelimit v1.1.1
 	github.com/gofrs/flock v0.12.1
@@ -17,6 +15,6 @@ require (
 )
 
 require (
-	github.com/mattn/go-colorable v0.1.13 // indirect
-	golang.org/x/sys v0.25.0 // indirect
+	github.com/mattn/go-colorable v0.1.14 // indirect
+	golang.org/x/sys v0.42.0 // indirect
 )
