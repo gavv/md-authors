@@ -43,7 +43,7 @@ Features:
 
 ### Install Go
 
-First, install Go >= 1.21.
+First, install Go >= 1.23.
 
 On Ubuntu:
 
