@@ -9,12 +9,12 @@ require (
 	github.com/gofri/go-github-pagination v1.0.1
 	github.com/gofri/go-github-ratelimit v1.1.1
 	github.com/gofrs/flock v0.12.1
-	github.com/mattn/go-isatty v0.0.20
+	github.com/mattn/go-isatty v0.0.23
 	github.com/spf13/pflag v1.0.10
 	github.com/texttheater/golang-levenshtein/levenshtein v0.0.0-20200805054039-cae8b0eaed6c
 )
 
 require (
-	github.com/mattn/go-colorable v0.1.13 // indirect
-	golang.org/x/sys v0.25.0 // indirect
+	github.com/mattn/go-colorable v0.1.15 // indirect
+	golang.org/x/sys v0.35.0 // indirect
 )
