@@ -1,5 +1,12 @@
 # Changelog
 
+## [v0.4][v0.4] - 21 Jul 2026
+
+* Bump minimum Go version to 1.23
+* Bump dependencies
+
+[v0.4]: https://github.com/gavv/md-authors/releases/tag/v0.4
+
 ## [v0.3][v0.3] - 20 May 2025
 
 * Remove `--vcs` and `--forge`, add `--no-project`
